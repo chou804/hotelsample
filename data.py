@@ -9,14 +9,13 @@ with open("hotel_C_f.json", "r", encoding="utf-8") as f:
         data.append(json.dumps(r ,ensure_ascii=False).encode('utf8').decode("utf-8"))
 
 idCount = 1
-with open('hotel_sample_10.json', 'w', encoding="utf-8") as fp:
+with open('hotel_sample_100k.json', 'w', encoding="utf-8") as fp:
     # ",".join(myList )
-    for d in data:
-        fp.write('{"index":{"_id":"'+str(idCount)+'"}}')
-        fp.write("\n")
-        fp.write(d)
-        fp.write("\n")
-        idCount = idCount + 1
-        if idCount == 10:
-            break
+    for x in range(10):
+        for d in data:
+            fp.write('{"index":{"_id":"'+str(idCount)+'"}}')
+            fp.write("\n")
+            fp.write(d)
+            fp.write("\n")
+            idCount = idCount + 1
 
